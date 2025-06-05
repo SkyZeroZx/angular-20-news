@@ -1,0 +1,20 @@
+<section class="nav-bar">
+  <a mat-button routerLink="/products">
+    <mat-icon fontIcon="apps" class="icon-lg" />
+    Products
+  </a>
+
+  <a mat-button routerLink="/check-out">
+    <mat-icon fontIcon="check_circle_outline" class="icon-lg" />
+    Check Out
+  </a>
+
+  <button mat-button class="nav-bar__shopping_cart">
+    <mat-icon
+      [class]="`nav-bar__shopping_cart${showMore() ? '--show-more' : ''}`   "
+      fontIcon="shopping_cart"
+      class="icon-lg"
+    />
+    Cart ({{ counter() }})
+  </button>
+</section>

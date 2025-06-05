@@ -1,0 +1,20 @@
+@let item = product();
+
+<mat-card class="product-card">
+  <div class="product-card__image">
+    <img [ngSrc]="item.image" [alt]="item.name" width="200" height="200" />
+  </div>
+
+  <mat-card-content>
+    <h3>{{ item.name }}</h3>
+    <p>{{ item.description }}</p>
+    <p class="product-card__price">Price: ${{ item.price }}</p>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button appClickTracking mat-raised-button (click)="addToCard()">
+      Add Cart
+    </button>
+    <a mat-button [routerLink]="['/products/' + item.id]">View Details</a>
+  </mat-card-actions>
+</mat-card>

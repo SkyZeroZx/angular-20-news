@@ -1,0 +1,56 @@
+<section scrollEnd (nearEnd)="onScrollEnd()" class="list-products">
+
+   @if(firstLoad()) {
+       <ng-container  *ngTemplateOutlet="skeleton"  />
+       
+   } @else {
+ 
+           @for (product of products() ; track product.id) {
+
+               @defer (hydrate on hover) {
+                  <app-card-product [product]="product" />
+               }      
+               @placeholder {
+                 <ngx-skeleton-loader   
+                     [theme]="{
+                     'border-radius': '15px',
+                     height : '469px',
+                     width : '300px',
+                     }"/>
+               }
+
+         } 
+           
+      } 
+ 
+
+   @if(resource.isLoading()) {
+       <ng-container  *ngTemplateOutlet="skeleton"  />
+   }
+ 
+   @if(endOfList()) {
+      <p>End of list products</p>
+   }
+
+</section>
+
+@if(resource.error()) { 
+   <section class="product-error">
+       <p>Something went wrong, please try again.</p>
+       <button mat-raised-button (click)="resource.reload()" > Reload <mat-icon  fontIcon="refresh"/> </button>
+   </section>
+
+}
+
+<ng-template #skeleton>
+   <div class="list-products">
+      @for (_ of [].constructor(4); track $index) {     
+          <ngx-skeleton-loader   
+            [theme]="{
+               'border-radius': '15px',
+               height : '469px',
+               width : '300px',
+            }"/>
+      }
+   </div>
+</ng-template>
