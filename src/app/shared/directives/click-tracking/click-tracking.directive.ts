@@ -1,4 +1,4 @@
-import { Directive } from '@angular/core';
+import { Directive, input, output } from '@angular/core';
 
 @Directive({
   selector: '[appClickTracking]',
@@ -7,7 +7,12 @@ import { Directive } from '@angular/core';
   },
 })
 export class ClickTrackingDirective {
+  customEvent = input<unknown>();
+
+  trackingEvent = output<unknown>();
+
   trackingClick() {
-    console.log('Tracking Click ...');
+    console.log('Tracking Click ...', { custom: this.customEvent() });
+    this.trackingEvent.emit('Tracking Event ' + this.customEvent());
   }
 }
