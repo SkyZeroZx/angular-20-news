@@ -89,6 +89,7 @@
               "buildTarget": "angular-20-news:build:production"
             },
             "development": {
+              "hmr": false,
               "buildTarget": "angular-20-news:build:development"
             }
           },
