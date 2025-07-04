@@ -5,7 +5,7 @@
   height: 100%;
   width: 300px;
   border-radius: 15px;
-  
+
   &__image {
     display: flex;
     justify-content: center;
@@ -19,5 +19,8 @@
 
 mat-card-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
 }
