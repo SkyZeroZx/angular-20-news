@@ -68,7 +68,10 @@ export class ModalService {
       directives: [
         {
           type: CdkTrapFocus,
-          bindings: [],
+          bindings: [
+            inputBinding('cdkTrapFocusAutoCapture', () => true),
+            inputBinding('cdkTrapFocus', () => true),
+          ],
         },
         {
           type: ClickTrackingDirective,
