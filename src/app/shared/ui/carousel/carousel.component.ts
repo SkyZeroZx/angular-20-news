@@ -67,6 +67,7 @@ export class CarouselComponent {
 
   changeImage(index: number) {
     this.currentSlide.set(index);
+    this.changeSlide();
   }
 
   changeSlide() {
